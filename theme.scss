@@ -1,0 +1,170 @@
+/*!
+ * Bootstrap v4.3.1 (https://getbootstrap.com/)
+ * Copyright 2011-2019 The Bootstrap Authors
+ * Copyright 2011-2019 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+@import 'functions';
+@import 'variables';
+@import 'mixins';
+@import 'reboot';
+@import 'type';
+@import 'images';
+@import 'code';
+@import 'grid';
+@import 'tables';
+@import 'forms';
+
+.form-errors {
+  ul {
+    @extend .list-unstyled;
+    color: $danger;
+  }
+  .errorExplanation {
+    h2 {
+      @extend h5;
+      color: $danger;
+    }
+  }
+}
+
+.error-message {
+  @extend .invalid-feedback;
+}
+
+@import 'buttons';
+@import 'transitions';
+@import 'dropdown';
+@import 'button-group';
+@import 'input-group';
+@import 'custom-forms';
+@import 'nav';
+@import 'navbar';
+@import 'card';
+@import 'breadcrumb';
+@import 'pagination';
+
+@media (max-width: 992px) {
+  .page-item:not(:first-of-type):not(:last-of-type) {
+    display: none;
+  }
+}
+
+@import 'badge';
+@import 'jumbotron';
+@import 'alert';
+
+.alert-notice,
+.alert-share {
+  @extend .alert-info;
+}
+
+.alert-error {
+  @extend .alert-danger;
+}
+
+.alert-notifications {
+  @extend .alert-warning;
+}
+
+@import 'progress';
+@import 'media';
+@import 'list-group';
+@import 'close';
+@import 'toasts';
+@import 'modal';
+@import 'tooltip';
+@import 'popover';
+@import 'carousel';
+
+.carousel-item .container {
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+@import 'spinners';
+@import 'utilities';
+
+.hide {
+  display: none;
+}
+
+@import 'print';
+
+/* NationBuilder Add-ons
+-----------------------------------------------*/
+@import 'moneybomb';
+@import 'slider-card';
+@import 'stripe';
+
+#header .navbar-brand-img {
+  object-fit: contain;
+  max-height: 100px;
+  min-height: 32px;
+}
+
+.expand {
+  position: relative;
+  .card-header {
+    cursor: pointer;
+    &:after {
+      content: '+';
+      position: absolute;
+      right: 1rem;
+      top: 0.7rem;
+    }
+  }
+  .card-header:not(.collapsed) {
+    &:after {
+      content: '-';
+    }
+  }
+}
+
+.svg-icon-inline {
+  transform: translateY(-1px);
+}
+
+/* Activity
+-----------------------------------------------*/
+.activity-content {
+  &:empty {
+    display: none;
+  }
+}
+
+/* Donation v1
+-----------------------------------------------*/
+img.icon-cc {
+  width: 28px;
+}
+
+.expiration-selects {
+  * {
+    float: left;
+  }
+  .year {
+    max-width: calc(50% - #{$form-grid-gutter-width});
+  }
+  .month {
+    margin-right: $form-grid-gutter-width;
+    max-width: 50%;
+  }
+}
+
+/* Alerts and flash messages
+-----------------------------------------------*/
+#flash_container {
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: $zindex-fixed;
+}
+
+#flash {
+  text-align: center;
+  margin: $spacer auto;
+}

@@ -1,0 +1,17 @@
+{% if tag.most_recent_published_pages.size < 3 %}
+  {% for post in tag.most_recent_published_pages %}
+    {% cycle '<div class="homepage_excerpt-list card-deck">', '', '' %}
+      <div class="excerpt-block card mb-4 shadow-sm">
+        {% include "homepage_excerpt" with post %}
+      </div>
+    {% cycle '', '', '</div>' %}
+  {% endfor %}
+{% else %}
+  <div class="homepage_excerpt-list card-columns">
+    {% for post in tag.most_recent_published_pages %}
+      <div class="excerpt-block card mb-4 shadow-sm">
+        {% include "homepage_excerpt" with post %}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}

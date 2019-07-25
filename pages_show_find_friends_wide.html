@@ -1,0 +1,45 @@
+{% if page.headline.size > 0 %}
+  <h2 class="mb-3">{{ page.headline }}</h2>
+{% endif %}
+
+{% if request.logged_in? %}
+  <div class="my-4">
+    {% if request.current_signup.has_facebook_authorization? %}
+      {% include "find_friends_facebook" %}
+    {% else %}
+      <p class="mb-1"><strong>You have <em>not</em> connected your Facebook account.</strong></p>
+      <a href="{{ request.facebook_connect_url }}" class="btn btn-primary btn-sm d-inline-flex justify-content-center align-items-center mb-1 login-button-facebook">
+        {% include "svg_icon" name: "facebook", class: "flex-shrink-0 mr-2" %}
+        Sign in with Facebook
+      </a>
+    {% endif %}
+  </div>
+
+  <div class="my-4">
+    {% if request.current_signup.has_twitter_authorization? %}
+      {% include "find_friends_twitter" %}
+    {% else %}
+      <p class="mb-1"><strong>You have <em>not</em> connected your Twitter account.</strong></p>
+      <a href="{{ request.twitter_connect_url }}"  class="btn btn-primary btn-sm d-inline-flex justify-content-center align-items-center mb-1 login-button-twitter">
+        {% include "svg_icon" name: "twitter", class: "flex-shrink-0 mr-2" %}
+        Sign in with Twitter
+      </a>
+    {% endif %}
+  </div>
+{% else %}
+  <div class="my-4">
+    <p class="mb-1"><strong>You have <em>not</em> connected your Facebook account.</strong></p>
+    <a href="{{ request.facebook_connect_url }}" class="btn btn-primary btn-sm d-inline-flex justify-content-center align-items-center mb-1 login-button-facebook">
+      {% include "svg_icon" name: "facebook", class: "flex-shrink-0 mr-2" %}
+      Sign in with Facebook
+    </a>
+  </div>
+
+  <div class="my-4">
+    <p class="mb-1"><strong>You have <em>not</em> connected your Twitter account.</strong></p>
+    <a href="{{ request.twitter_connect_url }}"  class="btn btn-primary btn-sm d-inline-flex justify-content-center align-items-center mb-1 login-button-twitter">
+      {% include "svg_icon" name: "twitter", class: "flex-shrink-0 mr-2" %}
+      Sign in with Twitter
+    </a>
+  </div>
+{% endif %}
